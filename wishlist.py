@@ -18,6 +18,9 @@ def handle_choice(choice):
     elif choice == '4':
         new_book()
 
+    elif choice == '5':
+        delete_book()
+
     elif choice == 'q':
         quit()
 
@@ -57,6 +60,12 @@ def quit():
     '''Perform shutdown tasks'''
     datastore.shutdown()
     ui.message('Bye!')
+
+def delete_book():
+    '''delete a wishlist book'''
+    bookId = ui.delete_book()
+    datastore.delete_book(bookId)
+
 
 
 def main():

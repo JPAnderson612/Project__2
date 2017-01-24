@@ -10,6 +10,7 @@ def display_menu_get_choice():
         2. Show books that have been read
         3. Mark a book as read
         4. Add book to wishlist
+        5. Delete book from wishlist
         q. Quit
     ''')
 
@@ -53,6 +54,11 @@ def get_new_book_info():
     title = input('Enter title: ')
     author = input('Enter author: ')
     return Book(title, author)
+
+def delete_book():
+    '''get and send book delete information'''
+    bookId = int(input("Enter book ID: "))
+    return bookId
 
 
 def message(msg):

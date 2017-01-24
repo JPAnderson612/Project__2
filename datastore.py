@@ -44,7 +44,7 @@ def shutdown():
     try:
         os.mkdir(DATA_DIR)
     except FileExistsError:
-        pass # Ignore - if directory exists, don't need to do anything. 
+        pass # Ignore - if directory exists, don't need to do anything.
 
     with open(BOOKS_FILE_NAME, 'w') as f:
         f.write(output_data)
@@ -125,3 +125,11 @@ def make_output_data():
     all_books_string = '\n'.join(output_data)
 
     return all_books_string
+
+def delete_book(ident):
+    '''delete a book specified by the user from the wishlist'''
+    global book_list
+
+    for book in book_list:
+        if book.id == ident:
+            book_list.remove(book)
